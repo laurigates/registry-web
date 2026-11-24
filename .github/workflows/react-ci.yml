@@ -35,13 +35,7 @@ jobs:
         run: bunx sort-package-json
       - name: Build the Next.js Project
         run: bun run build
-      # commit formatter-fixed code only if there are changes
-      - name: Check for changes
-        id: verify_diff
-        run: |
-          git diff --quiet . || echo "changed=true" >> $GITHUB_OUTPUT
       - uses: stefanzweifel/git-auto-commit-action@v5
-        if: steps.verify_diff.outputs.changed == 'true'
         with:
           commit_message: "format: Apply oxlint/oxfmt changes"
           commit_options: "--no-verify"
