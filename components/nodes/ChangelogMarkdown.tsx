@@ -25,7 +25,11 @@ const RICH_COMPONENTS: Components = {
     </a>
   ),
   ul: ({ children }) => <ul className="mb-2 ml-5 list-disc">{children}</ul>,
-  ol: ({ children }) => <ol className="mb-2 ml-5 list-decimal">{children}</ol>,
+  ol: ({ children, start }) => (
+    <ol start={start} className="mb-2 ml-5 list-decimal">
+      {children}
+    </ol>
+  ),
   li: ({ children }) => <li className="mb-1">{children}</li>,
   h1: ({ children }) => <h1 className="mt-2 mb-2 text-lg font-bold">{children}</h1>,
   h2: ({ children }) => <h2 className="mt-2 mb-2 text-base font-bold">{children}</h2>,
